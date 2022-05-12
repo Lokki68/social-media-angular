@@ -1,0 +1,14 @@
+{
+  "name": "angular-advanced-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "db.json",
+  "scripts": {
+    "server": "npx json-server --watch db.json --routes routes.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
