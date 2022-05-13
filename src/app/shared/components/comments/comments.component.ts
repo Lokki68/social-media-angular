@@ -1,11 +1,17 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Comment} from "../../../core/models/comment.model";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
+  animations: [
+    trigger('listeItem', [
+
+    ])
+  ]
 })
 export class CommentsComponent implements OnInit {
 

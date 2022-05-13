@@ -8,7 +8,7 @@
 </div>
   <mat-list *ngIf="comments.length">
     <h2 mat-subheader>Commentaires</h2>
-    <mat-list-item *ngFor="let comment of comments">
+    <mat-list-item *ngFor="let comment of comments" @listItem >
       <span mat-line>{{comment.comment}}</span>
       <span mat-line>{{comment.createdDate | date}}</span>
     </mat-list-item>
