@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { map, Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-complex-form',
@@ -23,17 +24,29 @@ export class ComplexFormComponent implements OnInit {
   confirmPasswordCtrl!: FormControl;
   loginInfoForm!: FormGroup;
 
+  showEmailControl$!: Observable<boolean>;
+  showPhoneControl$!: Observable<boolean>;
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.initFormControls();
     this.initMainForm();
+    this.initFormObservables();
   }
 
-  onSubmitForm() {}
+  onSubmitForm() {
+    console.log(this.mainForm.value);
+  }
 
   private initMainForm(): void {
-    this.mainForm = this.formBuilder.group({});
+    this.mainForm = this.formBuilder.group({
+      personalInfo: this.personalInfoForm,
+      contactPreference: this.contactPreferenceCtrl,
+      email: this.emailForm,
+      phone: this.phoneCtrl,
+      loginInfo: this.loginInfoForm,
+    });
   }
 
   private initFormControls() {
@@ -63,5 +76,17 @@ export class ComplexFormComponent implements OnInit {
       password: this.passwordctrl,
       confirmPassword: this.confirmPasswordCtrl,
     });
+  }
+
+  private initFormObservables() {
+    this.showEmailControl$ = this.contactPreferenceCtrl.valueChanges.pipe(
+      startWith(this.contactPreferenceCtrl.value),
+      map((preference) => preference === 'email')
+    );
+
+    this.showPhoneControl$ = this.contactPreferenceCtrl.valueChanges.pipe(
+      startWith(this.contactPreferenceCtrl.value),
+      map((preference) => preference === 'phone')
+    );
   }
 }
