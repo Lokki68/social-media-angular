@@ -192,6 +192,42 @@
         "confirmPassword": "moihsdgf"
       },
       "id": 4
+    },
+    {
+      "personalInfo": {
+        "firstName": "Brice",
+        "lastName": "Libert"
+      },
+      "contactPreference": "phone",
+      "email": {
+        "email": "",
+        "confirm": ""
+      },
+      "phone": "0783191208",
+      "loginInfo": {
+        "username": "lokki",
+        "password": "lokki",
+        "confirmPassword": "lokki"
+      },
+      "id": 5
+    },
+    {
+      "personalInfo": {
+        "firstName": "Laithi",
+        "lastName": "Libert"
+      },
+      "contactPreference": "email",
+      "email": {
+        "email": "laithi@gmail.com",
+        "confirm": "laithi@gmail.com"
+      },
+      "phone": "",
+      "loginInfo": {
+        "username": "Lilou",
+        "password": "1234",
+        "confirmPassword": "1234"
+      },
+      "id": 6
     }
   ],
   "candidates": [
