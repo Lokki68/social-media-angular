@@ -1,1 +1,20 @@
-<p>single-candidate works!</p>
+<mat-card>
+  <ng-container *ngIf="candidate$ |async as candidate">
+    <img [alt]="candidate.firstName + ' ' + candidate.lastName" [src]="candidate.imageUrl">
+    <div class="employee-info">
+      <h1>{{candidate.firstName}} {{candidate.lastName}}</h1>
+      <h2>{{candidate.job}}, {{candidate.departement}} chez {{candidate.company}}</h2>
+      <h3>Contact : {{candidate.email}}</h3>
+    </div>
+  </ng-container>
+  <mat-card-actions>
+    <mat-spinner *ngIf="loading$ | async; else buttons"></mat-spinner>
+    <ng-template #buttons>
+      <div class="action-buttons">
+        <button (click)="onHire()" color="accent" mat-flat-button>EMBAUCHER</button>
+        <button (click)="onRefuse()" color="warn" mat-flat-button>REFUSER</button>
+      </div>
+      <button (click)="onGoBack()" color="primary" mat-flat-button>RETOUR</button>
+    </ng-template>
+  </mat-card-actions>
+</mat-card>

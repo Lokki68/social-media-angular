@@ -3,6 +3,17 @@
     <mat-card-title>
       Candidats
     </mat-card-title>
+    <div class="form">
+      <mat-form-field appearance="fill">
+        <input [formControl]="searchCtrl" matInput type="text">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-select [formControl]="searchTypeCtrl">
+          <mat-option *ngFor="let option of searchTypeOptions" [value]="option.value">{{option.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </mat-card-title-group>
   <mat-spinner *ngIf="loading$ | async"></mat-spinner>
   <mat-nav-list *ngIf="candidates$ | async as candidates">
